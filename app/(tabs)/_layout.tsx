@@ -1,33 +1,95 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-
+import { View, Platform } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/Theme';
-import { useColorScheme } from '@/hooks/useColorScheme';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: '#137FEC',
+        tabBarInactiveTintColor: '#8E8E93',
         headerShown: false,
         tabBarButton: HapticTab,
+        tabBarStyle: {
+          backgroundColor: '#FFFFFF',
+          borderTopWidth: 0,
+          elevation: 5,
+          shadowColor: '#000',
+          shadowOffset: { width: 0, height: -2 },
+          shadowOpacity: 0.1,
+          shadowRadius: 4,
+          height: Platform.OS === 'ios' ? 92 : 72,
+          paddingBottom: Platform.OS === 'ios' ? 34 : 12,
+        },
+        tabBarLabelStyle: {
+          fontSize: 10,
+          fontWeight: '500',
+          marginBottom: 4,
+        },
       }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Inicio',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons size={24} name={focused ? 'home' : 'home-outline'} color={color} />
+          ),
         }}
       />
       <Tabs.Screen
+        name="reservas"
+        options={{
+          title: 'Reservas',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons size={24} name={focused ? 'calendar' : 'calendar-outline'} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="add"
+        options={{
+          title: '',
+          tabBarButton: (props) => (
+            <HapticTab
+              {...props}
+              style={{
+                top: -24,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <View className="w-[60px] h-[60px] rounded-full bg-[#137FEC] items-center justify-center shadow-lg shadow-blue-500/40">
+                <Ionicons name="add" size={32} color="white" />
+              </View>
+            </HapticTab>
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="mensajes"
+        options={{
+          title: 'Mensajes',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons size={24} name={focused ? 'chatbubble' : 'chatbubble-outline'} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="perfil"
+        options={{
+          title: 'Perfil',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons size={24} name={focused ? 'person' : 'person-outline'} color={color} />
+          ),
+        }}
+      />
+      {/* Hidden tabs if needed, but we removed explore */}
+      <Tabs.Screen
         name="explore"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          href: null,
         }}
       />
     </Tabs>
