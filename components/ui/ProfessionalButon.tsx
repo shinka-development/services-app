@@ -1,4 +1,5 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { useRouter } from 'expo-router';
 
 const categories = [
   {
@@ -34,6 +35,7 @@ const categories = [
 ];
 
 export default function ProfessionalButon() {
+  const router = useRouter();
   return (
     <View className="w-full px-4 mt-6">
       <View className="flex-row justify-between items-center mb-4">
@@ -55,6 +57,7 @@ export default function ProfessionalButon() {
               shadowRadius: 8,
               elevation: 2,
             }}
+            onPress={() => router.push({ pathname: "/RequestService", params: { category: category.name } })}
           >
             <View className="w-14 h-14 items-center justify-center mb-2">
               <Image 

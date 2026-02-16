@@ -2,7 +2,11 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 
+import { useRouter } from 'expo-router';
+
 export default function Service24h() {
+  const router = useRouter();
+
   return (
     <View className="w-full px-4 mt-6 mb-8 overflow-hidden">
       <LinearGradient
@@ -57,6 +61,7 @@ export default function Service24h() {
             <TouchableOpacity 
               className="bg-white px-5 py-2 rounded-xl flex-row items-center gap-2 shadow-sm"
               activeOpacity={0.8}
+              onPress={() => router.push({ pathname: '/SearchResults', params: { term: 'Urgencia', immediate: 'true' } })}
             >
               <Text className="text-[#DC2626] font-bold text-base">
                 Solicitar Ahora

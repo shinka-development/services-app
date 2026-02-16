@@ -2,7 +2,7 @@ import { Tabs } from 'expo-router';
 import React from 'react';
 import { View, Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { HapticTab } from '@/components/haptic-tab';
+import { HapticTab } from '../../components/haptic-tab';
 
 export default function TabLayout() {
   return (
@@ -39,7 +39,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="reservas"
+        name="Reservas"
         options={{
           title: 'Reservas',
           tabBarIcon: ({ color, focused }) => (
@@ -48,7 +48,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="add"
+        name="Add"
         options={{
           title: '',
           tabBarButton: (props) => (
@@ -68,7 +68,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="mensajes"
+        name="Mensajes"
         options={{
           title: 'Mensajes',
           tabBarIcon: ({ color, focused }) => (
@@ -77,7 +77,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="perfil"
+        name="Perfil"
         options={{
           title: 'Perfil',
           tabBarIcon: ({ color, focused }) => (
@@ -87,7 +87,7 @@ export default function TabLayout() {
       />
       {/* Hidden tabs if needed, but we removed explore */}
       <Tabs.Screen
-        name="explore"
+        name="Explore"
         options={{
           href: null,
         }}
