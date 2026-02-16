@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, Linking, Modal } from 'react-native';
+import { View, Text, TouchableOpacity, Image, Linking, Modal as RNModal } from 'react-native';
 import { Stack, useRouter, useLocalSearchParams } from 'expo-router';
 import MapView, { Marker, Polyline } from 'react-native-maps';
 import { cssInterop } from 'nativewind';
@@ -232,7 +232,7 @@ export default function TrackingScreen() {
       </View>
 
       {/* Options Modal */}
-      <Modal
+      <RNModal
         animationType="fade"
         transparent={true}
         visible={optionsVisible}
@@ -299,7 +299,7 @@ export default function TrackingScreen() {
             </View>
           </View>
         </TouchableOpacity>
-      </Modal>
+      </RNModal>
 
     </View>
   );

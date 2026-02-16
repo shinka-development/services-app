@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableOpacity, FlatList, Image, Linking, KeyboardAvoidingView, Platform, Keyboard, Alert, Modal, ScrollView } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, FlatList, Image, Linking, KeyboardAvoidingView, Platform, Alert, Modal as RNModal, ScrollView } from 'react-native';
 import { Stack, useRouter, useLocalSearchParams } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useState, useRef } from 'react';
@@ -299,7 +299,7 @@ export default function ChatScreen() {
       </KeyboardAvoidingView>
 
       {/* Worker Tools Modal */}
-      <Modal
+      <RNModal
         animationType="slide"
         transparent={true}
         visible={toolsVisible}
@@ -409,7 +409,7 @@ export default function ChatScreen() {
                 </ScrollView>
             </View>
         </TouchableOpacity>
-      </Modal>
+      </RNModal>
 
     </View>
   );
